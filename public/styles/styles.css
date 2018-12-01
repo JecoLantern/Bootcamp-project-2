@@ -1,3 +1,18 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.greeting {
+  text-align: center;
+}
+
+.question {
+  text-align: center;
+}
+
+.err404 {
+  margin: auto;
+  width: 50%;
+  border: 3px solid #1c486b;
+  padding: 0.625rem;
+}

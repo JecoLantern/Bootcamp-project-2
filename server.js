@@ -22,7 +22,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(favicon('/public/img/circleQ.ico'));
+app.use(favicon(process.cwd() + '/public/img/circleQ.ico'));
 
 // Routes
 require("./routes/apiRoutes")(app);
