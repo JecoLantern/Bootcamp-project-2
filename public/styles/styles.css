@@ -1,5 +1,9 @@
-.list-group-item {
+/* .list-group-item {
   line-height: 2.5;
+} */
+
+body {
+  background-color: #e0e4ed;
 }
 
 .greeting {
@@ -11,8 +15,17 @@
 }
 
 .err404 {
-  margin: auto;
-  width: 50%;
+  margin-top: 13rem;
+  width: 80%;
   border: 3px solid #1c486b;
-  padding: 0.625rem;
+}
+
+.err404msg {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
 }
