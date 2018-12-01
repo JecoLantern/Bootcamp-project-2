@@ -23,9 +23,15 @@ body {
 .err404msg {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
+  color: #0d7a6d;
+  text-align: center;
   text-shadow:
-  -1px -1px 0 white,
-  1px -1px 0 white,
-  -1px 1px 0 white,
-  1px 1px 0 white;
+  -1px -1px 0  white,
+  1px -1px 0  white,
+  -1px 1px 0  white,
+  1px 1px 0  white;
+}
+
+.back2home {
+  font-weight: bold;
 }
