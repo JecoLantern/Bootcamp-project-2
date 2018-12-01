@@ -1,10 +1,10 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col s8 offset-s2">
-        <h1>{{msg}}</h1>
-        <h2>What's My Worth?</h2>
-        <form class="col s12 animated fadeInUp slower delay-5s" action="POST">
+      <div class="col s8 m8 l12 xl12">
+        <h1 class="animated fadeInDown slower">{{msg}}</h1>
+        <h2 class="animated zoomIn slower">What's My Worth?</h2>
+        <form class="col s12 animated fadeInUp slower" action="POST">
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
               <i class="material-icons prefix">edit</i>
@@ -16,6 +16,7 @@
             <i class="material-icons right">send</i>
           </button>
         </form>
+        <div class="divider"></div>
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
