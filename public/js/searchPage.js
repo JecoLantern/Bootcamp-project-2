@@ -38,9 +38,13 @@ var refreshSearch = function() {
         .text(search.search)
         .attr("href", "/example/" + search.id);
 
+      var $tr = $("<tr>");
       var $td = $("<td>");
-      // $td.text("'" + search.searchItem + "'");
-      // $td.text("Insert Price").append($td);
+      // var $tdClose = $("</td>");
+      $td.text(search.search);
+      $td.text(search.price);
+      // $td.text(search.search + $tdClose).append($td + "Insert Price" + $tdClose);
+      // $td.text("Insert Price").prepend($td);
       // $td.text("Link to graph").append($td);
       $td.attr({ class: "list-group-item", "data-id": search.id }).append($a);
 
