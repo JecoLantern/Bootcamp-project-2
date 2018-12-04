@@ -1,6 +1,6 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes ) {
   var price = sequelize.define("Price", {
-    price: DataTypes.INTEGER,
+    price: DataTypes.STRING,
    
   });
   return price;
