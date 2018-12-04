@@ -35,13 +35,13 @@ var refreshSearch = function() {
   API.getSearch().then(function(data) {
     var $search = data.map(function(search) {
       var $a = $("<a>")
-        .text(search.searchItem)
+        .text(search.search)
         .attr("href", "/example/" + search.id);
 
       var $td = $("<td>");
-      $td.text(searchItem);
-      $td.text("Insert Price").append($td);
-      $td.text("Link to graph").append($td);
+      // $td.text("'" + search.searchItem + "'");
+      // $td.text("Insert Price").append($td);
+      // $td.text("Link to graph").append($td);
       $td.attr({ class: "list-group-item", "data-id": search.id }).append($a);
 
       var $button = $("<button>")
