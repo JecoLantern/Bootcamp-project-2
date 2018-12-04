@@ -1,102 +1,33 @@
-<main>
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col s12 m12 l12 xl12">
-        <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
-        <h2 class="animated zoomIn slower question">What's My Worth?</h2>
-        <form class="animated fadeInUp slower" method="GET" action="/search">
-          <div class="row">
-            <div class="input-field col s12 m12 l12 xl12">
-              <select>
-                <option value="" disabled selected>Please Choose your option</option>
-                <option value="1">I'm here to BUY</option>
-                <option value="2">I'm here to SELL</option>
-              </select>
-              <label>How May I Help You?</label>
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>This is our Home Page!</h2>
+        <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
           </div>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
-          <div class="row">
-            <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <a class="waves-effect waves-light btn" href="/search">Submit!<i class="material-icons right">send</i></a>
-            </div>
-          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <br>
-        <div class="divider"></div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row" id="bottom">
-      <div class="col s10 offset-s1 m3 offset-m1 l3 offset-l1 xl3 offset-xl1 animated fadeInRightBig delay-3s">
-        <h4>About</h4>
-        <p align="justify">A full-stack web application that searches an item then populates for the cheapest price.</p>
-      </div>
-      <div class="col s10 offset-s1 m3 l3 xl3 animated fadeInRightBig delay-3s slow">
-        <h4>Technologies</h4>
-        <p align="justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolor sint culpa excepturi, nisi eum natus aliquam dolorem accusantium autem reiciendis esse quas labore quos, nobis odit delectus perspiciatis enim.</p>
-      </div>
-      <div class="col s10 offset-s1 m4 l4 xl3 animated fadeInRightBig delay-3s slower">
-        <h4>Developers</h4>
-          <div class="row">
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Daniel Grams</span>
-              <p align="center">
-                <a href="https://github.com/dgrams99">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/daniel-grams-8b7133172/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Troy Gordon</span>
-              <p align="center">
-                <a href="https://github.com/TroyAG">GitHub Repositories</a> | 
-                <a href="#">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Alfonso Miguel Bernardo</span>
-              <p align="center">
-                <a href="https://github.com/AMBernardo">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/alfonso-miguel-bernardo-75a678167/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Jeric Ayonke</span>
-              <p align="center">
-                <a href="https://github.com/JecoLantern">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/jeric-ayonke-93536443/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-          </div>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
 </div>
-</main>
 
-<footer>
-  <div class="container">
-    <div class="col s12 m12 l12 xl12">
-      <p align="center">
-        <span>© 2018 Copyright | <a href="https://github.com/TroyAG/Bootcamp-project-2">GO to GitHub Repository</a></span>
-      </p>
-    </div>
-  </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="/js/materialize.min.js"></script>
-<script src="/js/framework.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
