@@ -24,7 +24,7 @@
         <br>
         <div class="divider"></div>
         <h3>Searches:</h3>
-        <table class="highlight responsive-table">
+     <table class="highlight responsive-table">
           <thead>
             <tr>
               <th>Item Name:</th>
@@ -35,9 +35,9 @@
           </thead>
           <tbody>
             <tr id="search-list" class="list-group">
-              {{#each examples}}
+              {{#each searches}}
               <td data-id="{{this.id}}" class="list-group-item"><a href="example/{{this.id}}">{{this.search}}</a></td>
-              <td>Insert Price here</td>
+              <td>Insert here</td>
               <td><button class="btn delete">ｘ</button></td>
               {{/each}}
             </tr>

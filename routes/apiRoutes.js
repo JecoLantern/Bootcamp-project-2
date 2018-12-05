@@ -8,11 +8,16 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Search.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  app.post("/api/searches", function(req, res) {
+    db.Search.create({
+      search: req.body.search
+    })
+      .then(function(dbSearches) {
+        res.json(dbSearches);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
   });
 
   // Delete an example by id
