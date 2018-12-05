@@ -1,8 +1,9 @@
 // Get references to page elements
 var searchItem = $("#searchItem");
-// var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $searchList = $("#search-list");
+
+// var Scrape = require("./scrape.js")
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -12,37 +13,37 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/searches",
       data: JSON.stringify(search)
     });
   },
-  getSearch: function() {
+  getSearches: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/searches",
       type: "GET"
     });
   },
   deleteSearch: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/searches/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshSearch = function() {
-  API.getSearch().then(function(data) {
-    var $search = data.map(function(search) {
+// refreshExamples gets new searches from the db and repopulates the list
+var refreshSearches = function() {
+  API.getSearches().then(function(data) {
+    var $searches = data.map(function(search) {
       var $a = $("<a>")
         .text(search.search)
-        .attr("href", "/example/" + search.id);
+        .attr("href", "/searchInfo/" + search.id);
 
       var $tr = $("<tr>");
       var $td = $("<td>");
       // var $tdClose = $("</td>");
-      $td.text(search.search);
-      $td.text(search.price);
+      // $td.text(search.search);
+      // $td.text(search.price);
       // $td.text(search.search + $tdClose).append($td + "Insert Price" + $tdClose);
       // $td.text("Insert Price").prepend($td);
       // $td.text("Link to graph").append($td);
@@ -58,17 +59,18 @@ var refreshSearch = function() {
     });
 
     $searchList.empty();
-    $searchList.append($search);
+    $searchList.append($searches);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new search
+// Save the new search to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var search = {
     search: searchItem.val().trim()
+    // price: Scrape
     // description: $exampleDescription.val().trim()
   };
 
@@ -78,22 +80,22 @@ var handleFormSubmit = function(event) {
   // }
 
   API.saveSearch(search).then(function() {
-    refreshSearch();
+    refreshSearches();
   });
 
   searchItem.val("");
   // $exampleDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
+// handleDeleteBtnClick is called when an search's delete button is clicked
+// Remove the search from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
   API.deleteSearch(idToDelete).then(function() {
-    refreshSearch();
+    refreshSearches();
   });
 };
 

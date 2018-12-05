@@ -9,16 +9,24 @@
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
               <select>
-                <option value="" disabled selected>Please Choose your option</option>
+                <option value="0" disabled selected>Please Choose your option</option>
                 <option value="1">I'm here to BUY</option>
                 <option value="2">I'm here to SELL</option>
               </select>
-              <label>How May I Help You?</label>
+              <label for="buyOrSell">How May I Help You?</label>
           </div>
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <a class="waves-effect waves-light btn" href="/search">Submit!<i class="material-icons right">send</i></a>
+              <a class="waves-effect waves-light btn modal-trigger" href="/search" href="#modal1">Submit!<i class="material-icons right">send</i></a>
+            </div>
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <p>You must select an option!</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+              </div>
             </div>
           </div>
         </form>

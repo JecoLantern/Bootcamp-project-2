@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var favicon = require('serve-favicon');
+var favicon = require("serve-favicon");
 
 var db = require("./models");
 
@@ -22,7 +22,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(favicon(process.cwd() + '/public/img/circleQ.ico'));
+app.use(favicon(process.cwd() + "/public/img/circleQ.ico"));
 
 // Routes
 require("./routes/apiRoutes")(app);
