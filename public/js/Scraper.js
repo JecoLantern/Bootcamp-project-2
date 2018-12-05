@@ -35,3 +35,4 @@ var scrapeIt = require("scrape-it")
       console.log(data)
       console.log("Amazon");
   })
+  module.exports = scrapeIt();

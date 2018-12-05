@@ -17,8 +17,8 @@
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.3",
     "nodemailer": "^4.7.0",
-    "sequelize": "^4.38.0",
     "scrape-it": "^5.1.1",
+    "sequelize": "^4.38.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

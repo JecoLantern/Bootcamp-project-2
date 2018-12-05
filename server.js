@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var scrapeIt =require("scrape-It");
 
 var db = require("./models");
 
@@ -22,6 +22,24 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+
+app.get('/search', (req, res) => {  
+  res.render('search');
+  queries = req.query;
+ var url = scrapeIt("https://www.ebay.com/sch/i.html?_from=R40&_nkw="+ queries +"&_sacat=0&_ipg=200")
+ if (queries){
+      (url, {
+  params: queries
+})({
+  price: "span.s-item__price"
+   
+  }).then(({ data, response }) => {
+      console.log(`Status Code: ${response.statusCode}`)
+      console.log(data)
+      console.log("ebay");
+  })}
+});
+ 
 
 // Routes
 require("./routes/apiRoutes")(app);
