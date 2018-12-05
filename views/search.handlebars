@@ -33,12 +33,14 @@
               <th>Remove Item:</th>
             </tr>
           </thead>
-          <tbody>
-            <tr id="search-list" class="list-group">
+          <tbody id="search-list" class="list-group">
               {{#each searches}}
-              <td data-id="{{this.id}}" class="list-group-item"><a href="example/{{this.id}}">{{this.search}}</a></td>
-              <td>Insert here</td>
-              <td><button class="btn delete">ｘ</button></td>
+              <tr data-id="{{this.id}}">
+                <td class="list-group-item">{{this.search}}</td>
+                <td>Insert Price</td>
+                <td><a href="/searchInfo/{{this.id}}">{{this.search}}</a></td>
+                <td><button class="btn delete">ｘ</button></td>
+              </tr>
               {{/each}}
             </tr>
           </tbody>

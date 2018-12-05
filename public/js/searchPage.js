@@ -35,26 +35,28 @@ var API = {
 var refreshSearches = function() {
   API.getSearches().then(function(data) {
     var $searches = data.map(function(search) {
-      var $a = $("<a>")
-        .text(search.search)
-        .attr("href", "/searchInfo/" + search.id);
+      // var $a = $("<a>")
+      //   .attr("href", "/searchInfo/" + search.id)
+      //   .text(search.search);
 
-      var $tr = $("<tr>");
-      var $td = $("<td>");
+      // var $button = $("<button>")
+      //     .addClass("btn delete")
+      //     .text("ｘ");
+      // var $trOpen = $("<tr>");
+      // var $trClose = $("</tr>");
+      var $td = $("<tr data-id='" + search.id + "'><td class='list-group-item'>" + search.search + "</td><td>" + "Insert Price" + "</td><td><a href=" + "'/searchInfo/" + search.id + "'>" + search.search + "</a>" + "</td><td><button class='btn delete'>" + "ｘ" + "</button></td></tr>");
       // var $tdClose = $("</td>");
-      // $td.text(search.search);
-      // $td.text(search.price);
-      // $td.text(search.search + $tdClose).append($td + "Insert Price" + $tdClose);
-      // $td.text("Insert Price").prepend($td);
-      // $td.text("Link to graph").append($td);
-      $td.attr({ class: "list-group-item", "data-id": search.id }).append($a);
 
-      var $button = $("<button>")
-        .addClass("btn delete")
-        .text("ｘ");
+      // $td.attr({ class: "list-group-item", "data-id": search.id }).append($a);
+      // $td.attr({ class: "list-group-item", "data-id": search.id });
+      // $td.text(search.search).append($tdClose);
 
-      $td.append($button);
+      // $td.text("Price");
+      // $td.append($a).append($tdClose);
 
+
+      // $td.append($button);
+      // $td;
       return $td;
     });
 
@@ -90,8 +92,8 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an search's delete button is clicked
 // Remove the search from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
+  var idToDelete = $("<tr>")
+    // .parent()
     .attr("data-id");
 
   API.deleteSearch(idToDelete).then(function() {
