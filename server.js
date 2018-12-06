@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -23,6 +23,22 @@ app.engine(
 app.set("view engine", "handlebars");
 
 app.use(favicon(process.cwd() + '/public/img/circleQ.ico'));
+//scrape
+
+ 
+  // scrapeIt(`https://www.ebay.com/sch/i.html?_from=R40&_nkw=${queries}=0&_ipg=200`, {
+  //   price: "span.s-item__price"
+   
+  // }).then(({ data, response }) => {
+  //     console.log(`Status Code: ${response.statusCode}`)
+  //     console.log(data)
+  //     console.log("ebay");
+  // })
+
+
+
+
+
 
 // Routes
 require("./routes/apiRoutes")(app);
