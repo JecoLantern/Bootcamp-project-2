@@ -23,9 +23,9 @@
         </form>
         <br>
         <div class="divider"></div>
-        <h3>Searches:</h3>
+        <h3 class="animated flipInX delay-1s slower">Searches:</h3>
         <table class="highlight responsive-table">
-          <thead>
+          <thead class="animated zoomIn delay-2s slower">
             <tr>
               <th>Item Name:</th>
               <th>Item Price:</th>
@@ -33,7 +33,7 @@
               <th>Remove Item:</th>
             </tr>
           </thead>
-          <tbody id="search-list" class="list-group">
+          <tbody id="search-list" class="list-group animated flipInX delay-2s slower">
               {{#each searches}}
               <tr data-id="{{this.id}}">
                 <td class="list-group-item">{{this.search}}</td>

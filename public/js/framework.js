@@ -1,8 +1,16 @@
 $(document).ready(function() {
   $("select").formSelect();
+  // $(".modal").modal();
 
-  // if (!(buyOrSell.val("0"))) {
-  //   $(".modal").modal();
-  //   return;
-  // }
+  var select = $("select");
+  if (select.value) {
+    return true;
+  }
+  return false;
+
+  $("#buyorsellform").validate({
+    rules: {
+      buyorsell: { required: true }
+    }
+  });
 });

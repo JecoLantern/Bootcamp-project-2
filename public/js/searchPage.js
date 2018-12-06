@@ -34,7 +34,7 @@ var refreshSearches = function() {
   API.getSearches().then(function(data) {
     var $searches = data.map(function(search) {
       var $trtd = $(
-        "<tr data-id='" +
+        "<tr class='animated flipInX delay-3s slower' data-id='" +
           search.id +
           "'><td class='list-group-item'>" +
           search.search +
@@ -60,6 +60,7 @@ var refreshSearches = function() {
     $searchList.append($searches);
   });
 };
+refreshSearches();
 
 // handleFormSubmit is called whenever we submit a new search
 // Save the new search to the db and refresh the list

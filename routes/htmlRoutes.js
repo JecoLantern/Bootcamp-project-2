@@ -25,14 +25,6 @@ module.exports = function(app) {
     res.render("search");
   });
 
-  app.get("/searchDelta", function(req, res) {
-    db.Search.findAll({}).then(function(dbSearches) {
-      res.render("search", {
-        search: dbSearches
-      });
-    });
-  });
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
