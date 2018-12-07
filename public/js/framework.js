@@ -2,15 +2,17 @@ $(document).ready(function() {
   $("select").formSelect();
   // $(".modal").modal();
 
-  var select = $("select");
-  if (select.value) {
-    return true;
-  }
-  return false;
+  //Validating Buy or Sell Form
+  var $submitBtn = $("#submit");
 
-  $("#buyorsellform").validate({
-    rules: {
-      buyorsell: { required: true }
+  function validateForm() {
+    var docForm = document.forms["buyorsellform"]["buyorsell"].value;
+    if (docForm === "") {
+      alert("Please Choose an Option!");
+      return false;
     }
-  });
+  }
+
+  // Event Listener for Buy or Sell Submit Button
+  $submitBtn.on("click", validateForm);
 });

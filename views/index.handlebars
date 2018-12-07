@@ -5,7 +5,7 @@
       <div class="col s12 m12 l12 xl12">
         <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
         <h2 class="animated zoomIn slower question">What's My Worth?</h2>
-        <form id="buyorsellform" class="animated fadeInUp slower" method="GET" action="/search">
+        <form name="buyorsellform" onsubmit="return validateForm()" class="animated fadeInUp slower" method="GET" action="/search">
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
               <select name="buyorsell">
@@ -18,7 +18,7 @@
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <button class="waves-effect waves-light btn modal-trigger" data-target="modal1" href="/search">Submit!<i class="material-icons right">send</i></button>
+              <button id="submit" type="submit" value="Submit" class="waves-effect waves-light btn modal-trigger" data-target="modal1" href="/search">Submit!<i class="material-icons right">send</i></button>
             </div>
             <div id="modal1" class="modal">
               <div class="modal-content">
