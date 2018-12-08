@@ -65,7 +65,7 @@ footer {
 }
 
 
-/* --------------------------------------- */
+/* ------Animated BG styling----------- */
 
 body{
   width: 100%;
@@ -164,4 +164,21 @@ opacity: .7;
     background-size: 280px;
   }
 
+}
+
+/* -----FABs and modals styling----- */
+div.fixed-action-btn{
+  top: 0;
+  left: 0;
+  
+}
+
+i.material-icons{
+  color:black;
+  
+}
+
+.btn-floating{
+  box-shadow: none !important;
+  border: none !important;
 }
