@@ -6,7 +6,7 @@ $(document).ready(function() {
   var $submitBtn = $("#submit");
 
   function validateForm() {
-    var docForm = document.forms["buyorsellform"]["buyorsell"].value;
+    var docForm = document.forms.buyorsellform.buyorsell.value;
     if (docForm === "") {
       alert("Please Choose an Option!");
       return false;

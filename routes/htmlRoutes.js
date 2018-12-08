@@ -15,7 +15,8 @@ module.exports = function(app) {
   app.get("/searchInfo/:id", function(req, res) {
     db.Search.findOne({ where: { id: req.params.id } }).then(function(dbSearches) {
       res.render("searchInfo", {
-        search: dbSearches
+        search: dbSearches,
+        price: dbSearches
       });
     });
   });

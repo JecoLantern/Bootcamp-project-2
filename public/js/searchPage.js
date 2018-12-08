@@ -39,7 +39,7 @@ var refreshSearches = function() {
           "'><td class='list-group-item'>" +
           search.search +
           "</td><td>" +
-          "Insert Price" +
+          search.price +
           "</td><td><a href=" +
           "'/searchInfo/" +
           search.id +
