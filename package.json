@@ -9,10 +9,7 @@
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
-  "husky": {
-
-  },
-
+  "husky": {},
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.1.0",
