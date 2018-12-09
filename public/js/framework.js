@@ -8,7 +8,8 @@ $(document).ready(function() {
   function validateForm() {
     var docForm = document.forms.buyorsellform.buyorsell.value;
     if (docForm === "") {
-      alert("Please Choose an Option!");
+      $(".modal-trigger").modal();
+      // alert("Please Choose an Option!");
       return false;
     }
   }
