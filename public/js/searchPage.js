@@ -13,7 +13,7 @@ var API = {
       type: "POST",
       url: "api/searches",
       data: JSON.stringify(search)
-    });
+    }), $.post('/api/searches', search, (data) => {console.log(data)}); 
   },
   getSearches: function() {
     return $.ajax({
@@ -32,14 +32,24 @@ var API = {
 // refreshSearches gets new searches from the db and repopulates the list
 var refreshSearches = function() {
   API.getSearches().then(function(data) {
+    function formatMoney(n, c, d, t) {
+      var c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "." : d,
+        t = t == undefined ? "," : t,
+        s = n < 0 ? "-" : "",
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    
+      return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    };
     var $searches = data.map(function(search) {
       var $trtd = $(
         "<tr class='animated flipInX delay-3s slower' data-id='" +
           search.id +
           "'><td class='list-group-item'>" +
           search.search +
-          "</td><td>" +
-          search.price +
+          "</td><td>$" +
+          formatMoney(search.price) +
           "</td><td><a href=" +
           "'/searchInfo/" +
           search.id +

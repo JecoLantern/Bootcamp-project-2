@@ -15,7 +15,7 @@
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit!
+              <button  id="submit" class="btn waves-effect waves-light"  type="submit" name="action">Submit!
                 <i class="material-icons right">send</i>
               </button>
             </div>
@@ -37,7 +37,7 @@
               {{#each searches}}
               <tr data-id="{{this.id}}">
                 <td class="list-group-item">{{this.search}}</td>
-                <td>{{this.price}}</td>
+                <td>$ {{this.price}}</td>
                 <td><a href="/searchInfo/{{this.id}}">{{this.search}}</a></td>
                 <td><button class="btn delete">ｘ</button></td>
               </tr>
