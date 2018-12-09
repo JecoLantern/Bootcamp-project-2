@@ -12,25 +12,56 @@ module.exports = function(app) {
   app.post("/api/searches", function(req, res) {
     console.log(req.body.search)
     q = req.body.search
+
+    for(var i = 0; i < q.length; i++) {
+ 
+      q = q.replace(" ", "+");
+      
+      
+     }
+
+     console.log(q);
     //scrape function
     scrapeIt(`https://www.ebay.com/sch/i.html?_from=R40&_nkw=${q}&_sacat=0&_ipg=200`, {
       price: "span.s-item__price"
       
     }).then(({ data, response }) => {
+      var prices = [];
         console.log(`Status Code: ${response.statusCode}`)
-        console.log(data)
-
-
-        // var priceDataByDollar = data.split(" ");
-        // console.log(priceDataByDollar)
-
-        // db.Search.create(data).then(function(dbExample) {
-   
-        //   res.json(dbExample);
-        // });
         
-          });
+        var updatedPrice = data.price
+      //splits data to separate it by the $
+        var onePrice = updatedPrice.split('$')
+        
+        //function to put the price into the database
+        function priceChart (){
   
+          for(var i = 1; i < onePrice.length; i++) {
+            //takes away the commas in the data
+            noCommas = onePrice[i].replace(',', '');
+            //takes away to that comes into the data
+            noLetter = noCommas.replace('to', '');
+            console.log(noLetter)
+            var finalPrice ={
+              price: noLetter
+            };
+            console.log(finalPrice);
+           
+            //pushes price to database
+            prices.push(finalPrice);
+          }
+         
+          db.Price.bulkCreate(prices).then(function(result){
+            res.json(result);
+          })
+         
+        // 
+      
+        }
+      
+      priceChart()
+        })
+       
   });
 
   // Delete an example by id
