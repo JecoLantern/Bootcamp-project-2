@@ -98,7 +98,7 @@ z-index: -1;
 
 #transCircle {
 background-color:transparent;
-border:1px solid black;    
+border:1px solid #09383E;    
 height:500px;
 border-radius:50%;
 -moz-border-radius:50%;
@@ -186,3 +186,41 @@ i.material-icons{
 div.fixed-action-btn{
   height: 3rem;
 }
+
+
+/* ---color and positioning adjustments--- */
+/* label color */
+label{
+  color: #000 !important;
+}
+
+/* landing button color */
+a.waves-effect.waves-light.btn{
+  background-color: rgb(18, 73, 105) !important;
+}
+/* landing drop down color */
+input.select-dropdown:focus {
+  border-bottom: 1px solid rgb(2, 213, 250) !important;
+}
+/* options text color */
+span{
+  color: #09383E !important;
+}
+
+
+/* search text area color and the icon color*/
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+}
+
+i.material-icons.prefix.active{
+  color: red !important;
+}
+
+/* search button color */
+button#submit.btn.waves-effect.waves-light{
+  background-color: rgb(18, 73, 105) !important;
+}
+
+
