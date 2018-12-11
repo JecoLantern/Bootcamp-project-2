@@ -1,17 +1,19 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var scrapeIt =require("scrape-It");
+var favicon = require("serve-favicon");
+var app = express();
 
 var db = require("./models");
-
+var populationRouter = require('./routes/d3');
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.static('./routes'))
 
 // Handlebars
 app.engine(
@@ -22,24 +24,15 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.use(favicon(process.cwd() + "/public/img/circleQ.ico"));
 
-app.get('/search', (req, res) => {  
-  res.render('search');
-  queries = req.query;
- var url = scrapeIt("https://www.ebay.com/sch/i.html?_from=R40&_nkw="+ queries +"&_sacat=0&_ipg=200")
- if (queries){
-      (url, {
-  params: queries
-})({
-  price: "span.s-item__price"
-   
-  }).then(({ data, response }) => {
-      console.log(`Status Code: ${response.statusCode}`)
-      console.log(data)
-      console.log("ebay");
-  })}
+app.use('/price', populationRouter.getPopulations());
+
+app.get('/searchinfo', function (req, res) {
+    res.render('searchinfo', {
+        title: 'price Chart'
+    });
 });
- 
 
 // Routes
 require("./routes/apiRoutes")(app);

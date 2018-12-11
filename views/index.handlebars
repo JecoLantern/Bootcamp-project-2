@@ -1,24 +1,28 @@
 <main>
 <div id="home">
+  <div id="circle"></div>
+    <div id="transCircle">
+      <div class="dial"></div>
+    </div>
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12 xl12">
         <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
         <h2 class="animated zoomIn slower question">What's My Worth?</h2>
-        <form class="animated fadeInUp slower" method="GET" action="/search">
+        <form name="buyorsellform" onsubmit="return validateForm()" class="animated fadeInUp slower" method="GET" action="/search">
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
-              <select>
+              <select name="buyorsell">
                 <option value="" disabled selected>Please Choose your option</option>
                 <option value="1">I'm here to BUY</option>
                 <option value="2">I'm here to SELL</option>
               </select>
-              <label>How May I Help You?</label>
+              <label for="buyOrSell">How May I Help You?</label>
           </div>
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <a class="waves-effect waves-light btn" href="/search ">Submit!<i class="material-icons right">send</i></a>
+              <button id="submit" type="submit" value="Submit" class="waves-effect waves-light btn" href="/search">Submit!<i class="material-icons right">send</i></button>
             </div>
           </div>
         </form>
@@ -27,62 +31,77 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row" id="bottom">
-      <div class="col s10 offset-s1 m3 offset-m1 l3 offset-l1 xl3 offset-xl1 animated fadeInRightBig delay-3s">
-        <h4>About</h4>
-        <p align="justify">A full-stack web application that searches an item then populates for the cheapest price.</p>
-      </div>
-      <div class="col s10 offset-s1 m3 l3 xl3 animated fadeInRightBig delay-3s slow">
-        <h4>Technologies</h4>
-        <p align="justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolor sint culpa excepturi, nisi eum natus aliquam dolorem accusantium autem reiciendis esse quas labore quos, nobis odit delectus perspiciatis enim.</p>
-      </div>
-      <div class="col s10 offset-s1 m4 l4 xl3 animated fadeInRightBig delay-3s slower">
-        <h4>Developers</h4>
-          <div class="row">
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Daniel Grams</span>
-              <p align="center">
-                <a href="https://github.com/dgrams99">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/daniel-grams-8b7133172/">LinkedIn Profile</a>
-              </p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="fixed-action-btn">
+                <a class="btn-floating btn-large transparent">
+                  <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal3"><i class="material-icons">person_pin</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal2"><i class="material-icons">devices</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal1"><i class="material-icons">developer_board</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="/"><i class="material-icons">home</i></a></li>
+                </ul>
+        </div>
+
+        <div id="modal1" class="modal animated zoomIn">
+            <div class="modal-content">
+              <h4>App Information</h4>
+              <p>A full-stack web application that searches an item then populates for the cheapest price.</p>
             </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Troy Gordon</span>
-              <p align="center">
-                <a href="https://github.com/TroyAG">GitHub Repositories</a> | 
-                <a href="#">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Alfonso Miguel Bernardo</span>
-              <p align="center">
-                <a href="https://github.com/AMBernardo">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/alfonso-miguel-bernardo-75a678167/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Jeric Ayonke</span>
-              <p align="center">
-                <a href="https://github.com/JecoLantern">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/jeric-ayonke-93536443/">LinkedIn Profile</a>
-              </p>
-            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
             </div>
           </div>
-      </div>
-    </div>
+
+          <div id="modal2" class="modal animated zoomIn">
+            <div class="modal-content">
+              <h4>Technologies Used</h4>
+              <p>A bunch of text hjagdfladbfljhgadbsghkfljkSBNDA dashbfsk</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+            </div>
+          </div>
+
+          <div id="modal3" class="modal bottom-sheet animated fadeInUp">
+                <div class="modal-content">
+                  <h4 class="center-align">Developers</h4>
+                  
+                  <ul class="collection">
+                      <li class="collection-item avatar">
+                      <span class="title">Jeric Ayonke</span>
+                      <p class="name">Front End Dev/ Back End Dev</p>
+                      <p class="job">https://github.com/JecoLantern</p>
+                      <a href="https://www.linkedin.com/in/jeric-ayonke-93536443/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Troy Gordon</span>
+                      <p class="name">Back End Dev</p>
+                      <p class="job">https://github.com/TroyAG</p>
+                      <a href="!#" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Daniel Grams</span>
+                      <p class="name">Back End Dev</p>
+                      <p class="job">https://github.com/dgrams99</p>
+                      <a href="https://www.linkedin.com/in/daniel-grams-8b7133172/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Alfonso Miguel Bernardo</span>
+                      <p class="name">Front End Dev</p>
+                      <p class="job">https://github.com/AMBernardo</p>
+                      <a href="https://www.linkedin.com/in/alfonso-miguel-bernardo-75a678167/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                  </ul>
+
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+                </div>
+            </div>
   </div>
 </div>
 </main>

@@ -1,5 +1,9 @@
 <main>
 <div id="home">
+  <div id="circle"></div>
+    <div id="transCircle">
+      <div class="dial"></div>
+    </div>
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12 xl12">
@@ -9,13 +13,13 @@
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
               <i class="material-icons prefix">search</i>
-              <input id="query" type="text" aria-describedby="searchItem" placeholder="Enter Search Item">
+              <input id="searchItem" type="text" aria-describedby="searchItem" placeholder="Enter Search Item">
               <label for="searchItem">Search:</label>
             </div>
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit!
+              <button  id="submit" class="btn waves-effect waves-light"  type="submit" name="action">Submit!
                 <i class="material-icons right">send</i>
               </button>
             </div>
@@ -23,9 +27,9 @@
         </form>
         <br>
         <div class="divider"></div>
-        <h3>Searches:</h3>
-     <table class="highlight responsive-table">
-          <thead>
+        <h3 class="animated flipInX delay-1s slower">Searches:</h3>
+        <table class="highlight responsive-table">
+          <thead class="animated zoomIn delay-2s slower">
             <tr>
               <th>Item Name:</th>
               <th>Item Price:</th>
@@ -33,28 +37,97 @@
               <th>Remove Item:</th>
             </tr>
           </thead>
-          <tbody>
-            <tr id="search-list" class="list-group">
+          <tbody id="search-list" class="list-group animated flipInX delay-2s slower">
               {{#each searches}}
-              <td data-id="{{this.id}}" class="list-group-item"><a href="example/{{this.id}}">{{this.search}}</a></td>
-              <td>Insert here</td>
-              <td><button class="btn delete">ｘ</button></td>
+              <tr data-id="{{this.id}}">
+                <td class="list-group-item">{{this.search}}</td>
+                <td>$ {{this.price}}</td>
+                <td><a href="/searchInfo/{{this.id}}">{{this.search}}</a></td>
+                <td><button class="btn delete">ｘ</button></td>
+              </tr>
               {{/each}}
             </tr>
           </tbody>
         </table>
-        {{!-- <ul id="search-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.searchItem}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
       </div>
     </div>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="fixed-action-btn">
+                <a class="btn-floating btn-large transparent">
+                  <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal3"><i class="material-icons">person_pin</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal2"><i class="material-icons">devices</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="#modal1"><i class="material-icons">developer_board</i></a></li>
+                  <li><a class="modal-trigger btn-floating transparent" href="/"><i class="material-icons">home</i></a></li>
+                </ul>
+        </div>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>App Information</h4>
+              <p>A full-stack web application that searches an item then populates for the cheapest price.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+            </div>
+          </div>
+
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Technologies Used</h4>
+              <p>A bunch of text hjagdfladbfljhgadbsghkfljkSBNDA dashbfsk</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+            </div>
+          </div>
+
+          <div id="modal3" class="modal bottom-sheet">
+                <div class="modal-content">
+                  <h4 class="center-align">Developers</h4>
+                  
+                  <ul class="collection">
+                      <li class="collection-item avatar">
+                      <span class="title">Jeric Ayonke</span>
+                      <p class="name">Front End Dev/ Back End Dev</p>
+                      <p class="job">https://github.com/JecoLantern</p>
+                      <a href="https://www.linkedin.com/in/jeric-ayonke-93536443/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Troy Gordon</span>
+                      <p class="name">Back End Dev</p>
+                      <p class="job">https://github.com/TroyAG</p>
+                      <a href="!#" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Daniel Grams</span>
+                      <p class="name">Back End Dev</p>
+                      <p class="job">https://github.com/dgrams99</p>
+                      <a href="https://www.linkedin.com/in/daniel-grams-8b7133172/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                      <li class="collection-item avatar">
+                      <span class="title">Alfonso Miguel Bernardo</span>
+                      <p class="name">Front End Dev</p>
+                      <p class="job">https://github.com/AMBernardo</p>
+                      <a href="https://www.linkedin.com/in/alfonso-miguel-bernardo-75a678167/" class="secondary-content"><i class="material-icons">contact_mail</i></a>
+                      </li>
+                  </ul>
+
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+                </div>
+            </div>
+  </div>
+</div>
+
+
 </main>
 
 <footer>
