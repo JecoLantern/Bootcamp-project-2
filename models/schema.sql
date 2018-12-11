@@ -1,5 +1,21 @@
 DROP DATABASE IF EXISTS searchdb;
 CREATE DATABASE searchdb;
 
+USE searchdb;
+
+CREATE TABLE searches (
+    id INT(10) AUTO_INCREMENT NOT NULL,
+    search VARCHAR(255) NOT NULL,
+    price DECIMAL(15, 2),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY(id)
+);
+
+SELECT search,
+    CONCAT('$', FORMAT(AVG(price), 2)) price
+FROM searches
+ORDER BY price;
+
 DROP DATABASE IF EXISTS testdb;
 CREATE DATABASE testdb;
