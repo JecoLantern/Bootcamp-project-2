@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var favicon = require('serve-favicon');
+var favicon = require("serve-favicon");
 
 var db = require("./models");
 
@@ -22,23 +22,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(favicon(process.cwd() + '/public/img/circleQ.ico'));
-//scrape
-
- 
-  // scrapeIt(`https://www.ebay.com/sch/i.html?_from=R40&_nkw=${queries}=0&_ipg=200`, {
-  //   price: "span.s-item__price"
-   
-  // }).then(({ data, response }) => {
-  //     console.log(`Status Code: ${response.statusCode}`)
-  //     console.log(data)
-  //     console.log("ebay");
-  // })
-
-
-
-
-
+app.use(favicon(process.cwd() + "/public/img/circleQ.ico"));
 
 // Routes
 require("./routes/apiRoutes")(app);

@@ -6,11 +6,16 @@ var $searchList = $("#search-list");
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveSearch: function(search) {
-    console.log(search)
-    return $.post('/api/searches', search, (data) => {console.log(data)});
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/searches",
+      data: JSON.stringify(search)
+    });
   },
   getSearches: function() {
-    console.log(serch)
     return $.ajax({
       url: "api/searches",
       type: "GET"
@@ -29,12 +34,12 @@ var refreshSearches = function() {
   API.getSearches().then(function(data) {
     var $searches = data.map(function(search) {
       var $trtd = $(
-        "<tr data-id='" +
+        "<tr class='animated flipInX delay-3s slower' data-id='" +
           search.id +
           "'><td class='list-group-item'>" +
           search.search +
           "</td><td>" +
-          "Insert Price" +
+          search.price +
           "</td><td><a href=" +
           "'/searchInfo/" +
           search.id +
@@ -55,6 +60,7 @@ var refreshSearches = function() {
     $searchList.append($searches);
   });
 };
+refreshSearches();
 
 // handleFormSubmit is called whenever we submit a new search
 // Save the new search to the db and refresh the list

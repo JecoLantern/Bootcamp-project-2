@@ -7,12 +7,18 @@ module.exports = function(app) {
       res.json(dbSearches);
     });
   });
+ // Create a new searches
+ app.post("/api/searches", function(req, res) {
+  db.Search.create({
+    search: req.body.search
+  })
+ });
 
   // takes User input to run scraper to get price data
-  app.post("/api/searches", function(req, res) {
+  app.post("/api/search?", function(req, res) {
     console.log(req.body.search)
     q = req.body.search
-
+    console.log(q)
     for(var i = 0; i < q.length; i++) {
  
       q = q.replace(" ", "+");
@@ -51,8 +57,8 @@ module.exports = function(app) {
             prices.push(finalPrice);
           }
          
-          db.Price.bulkCreate(prices).then(function(result){
-            res.json(result);
+          db.Price.bulkCreate(prices).then(function(searchesdb){
+            res.json(searchesdb);
           })
          
         // 
@@ -65,9 +71,9 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Search.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  app.delete("/api/searches/:id", function(req, res) {
+    db.Search.destroy({ where: { id: req.params.id } }).then(function(searchesdb) {
+      res.json(searchesdb);
     });
   });
 };
