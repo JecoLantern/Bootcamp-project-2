@@ -14,12 +14,16 @@ var API = {
       url: "api/searches",
       data: JSON.stringify(search)
     }), $.post('/api/searches', search, (data) => {console.log(data)}); 
+    
   },
   getSearches: function() {
+    
     return $.ajax({
       url: "api/searches",
       type: "GET"
+      
     });
+    
   },
   deleteSearch: function(id) {
     return $.ajax({
@@ -89,6 +93,7 @@ var handleFormSubmit = function(event) {
 
   API.saveSearch(search).then(function() {
     refreshSearches();
+    
   });
 
   searchItem.val("");
@@ -105,6 +110,7 @@ var handleDeleteBtnClick = function() {
     refreshSearches();
   });
 };
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

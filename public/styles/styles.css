@@ -90,7 +90,7 @@ border-radius:50%;
 -webkit-border-radius:50%;
 width:500px;
 position: fixed;
-left: 25rem;
+left: 34rem;
 top: 2rem;
 animation: spin 15s ease-in-out infinite;
 z-index: -1;
@@ -106,7 +106,7 @@ border-radius:50%;
 -webkit-border-radius:50%;
 width:500px;
 position: fixed;
-left: 25rem;
+left: 34rem;
 top: 2rem;
 border-color: #09383E transparent;
 animation: spin2 15s ease-in-out infinite;
@@ -196,32 +196,45 @@ label{
 }
 
 /* landing button color */
-a.waves-effect.waves-light.btn{
-  background-color: rgb(18, 73, 105) !important;
+button#submmit.waves-effect.waves-light.btn{
+  background-color: cadetblue !important;
 }
 /* landing drop down color */
 input.select-dropdown:focus {
-  border-bottom: 1px solid rgb(2, 213, 250) !important;
+  border-bottom: 1px solid cadetblue !important;
 }
 /* options text color */
 span{
-  color: #09383E !important;
+  color: cadetblue !important;
 }
 
 
 /* search text area color and the icon color*/
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid red !important;
-  box-shadow: 0 1px 0 0 red !important;
+  border-bottom: 1px solid cadetblue !important;
+  box-shadow: 0 1px 0 0 cadetblue !important;
 }
 
 i.material-icons.prefix.active{
-  color: red !important;
+  color: cadetblue !important;
 }
 
 /* search button color */
 button#submit.btn.waves-effect.waves-light{
-  background-color: rgb(18, 73, 105) !important;
+  background-color: cadetblue !important;
 }
+
+button.btn.delete{
+  background-color: cadetblue;
+}
+
+footer{
+  background-color: transparent;
+}
+
+span.title{
+  color: black !important;
+}
+
 
 

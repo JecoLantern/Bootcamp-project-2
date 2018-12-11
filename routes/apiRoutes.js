@@ -11,7 +11,7 @@ module.exports = function(app) {
 
   // takes User input to run scraper to get price data
   app.post("/api/searches", function(req, res) {
-
+    
     // console.log(req.body.search)
     q = req.body.search
 
