@@ -20,7 +20,7 @@ module.exports = function(app) {
       q = q.replace(" ", "+");
       
       
-     }
+    }
 
     //  console.log(q);
     //scrape function
@@ -50,18 +50,6 @@ module.exports = function(app) {
           prices.push(parseFloat(finalPrice));
         }
 
-        // Create Search
-        // db.Search.bulkCreate({
-        //   search: req.body.search,
-        //   price: "SELECT search, CONCAT'$', FORMAT(AVG(" + prices + "), 2)) price FROM searchdb ORDER BY price"
-        //   // price: prices.reduce(function(a, b) { return a + b; }, 0)
-        // })
-        // .then(function(dbSearches) {
-        //   res.json(dbSearches);
-        // })
-        // .catch(function(err) {
-        //   res.json(err);
-        // });
       }
       // function call
       priceChart()
