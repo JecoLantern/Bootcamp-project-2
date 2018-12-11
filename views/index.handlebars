@@ -9,20 +9,28 @@
       <div class="col s12 m12 l12 xl12">
         <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
         <h2 class="animated zoomIn slower question">What's My Worth?</h2>
-        <form class="animated fadeInUp slower" method="GET" action="/search">
+        <form name="buyorsellform" onsubmit="return validateForm()" class="animated fadeInUp slower" method="GET" action="/search">
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
-              <select>
+              <select name="buyorsell">
                 <option value="" disabled selected>Please Choose your option</option>
                 <option value="1">I'm here to BUY</option>
                 <option value="2">I'm here to SELL</option>
               </select>
-              <label>How May I Help You?</label>
+              <label for="buyOrSell">How May I Help You?</label>
           </div>
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <a class="waves-effect waves-light btn" href="/search">Submit!<i class="material-icons right">send</i></a>
+              <button id="submit" type="submit" value="Submit" class="waves-effect waves-light btn modal-trigger" data-target="modal1" href="/search">Submit!<i class="material-icons right">send</i></button>
+            </div>
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <p>You must select an option!</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+              </div>
             </div>
           </div>
         </form>

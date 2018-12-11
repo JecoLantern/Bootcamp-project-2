@@ -19,7 +19,7 @@
           </div>
           <div class="row">
             <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
-              <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit!
+              <button  id="submit" class="btn waves-effect waves-light"  type="submit" name="action">Submit!
                 <i class="material-icons right">send</i>
               </button>
             </div>
@@ -27,9 +27,9 @@
         </form>
         <br>
         <div class="divider"></div>
-        <h3>Searches:</h3>
+        <h3 class="animated flipInX delay-1s slower">Searches:</h3>
         <table class="highlight responsive-table">
-          <thead>
+          <thead class="animated zoomIn delay-2s slower">
             <tr>
               <th>Item Name:</th>
               <th>Item Price:</th>
@@ -37,24 +37,18 @@
               <th>Remove Item:</th>
             </tr>
           </thead>
-          <tbody>
-            <tr id="search-list" class="list-group">
-              {{#each examples}}
-              <td data-id="{{this.id}}" class="list-group-item"><a href="example/{{this.id}}">{{this.search}}</a></td>
-              <td>Insert Price here</td>
-              <td><button class="btn delete">ｘ</button></td>
+          <tbody id="search-list" class="list-group animated flipInX delay-2s slower">
+              {{#each searches}}
+              <tr data-id="{{this.id}}">
+                <td class="list-group-item">{{this.search}}</td>
+                <td>$ {{this.price}}</td>
+                <td><a href="/searchInfo/{{this.id}}">{{this.search}}</a></td>
+                <td><button class="btn delete">ｘ</button></td>
+              </tr>
               {{/each}}
             </tr>
           </tbody>
         </table>
-        {{!-- <ul id="search-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.searchItem}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
       </div>
     </div>
   </div>
