@@ -19,7 +19,6 @@ module.exports = function(app) {
  
       q = q.replace(" ", "+");
       
-      
     }
 
     //  console.log(q);
