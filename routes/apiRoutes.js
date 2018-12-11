@@ -8,19 +8,13 @@ module.exports = function(app) {
       res.json(dbSearches);
     });
   });
- // Create a new searches
- app.post("/api/searches", function(req, res) {
-  db.Search.create({
-    search: req.body.search
-  })
- });
 
   // takes User input to run scraper to get price data
   app.post("/api/searches", function(req, res) {
 
     // console.log(req.body.search)
     q = req.body.search
-    console.log(q)
+
     for(var i = 0; i < q.length; i++) {
  
       q = q.replace(" ", "+");
@@ -36,7 +30,7 @@ module.exports = function(app) {
     }).then(({ data, response }) => {
       var prices = [];
       console.log(`Status Code: ${response.statusCode}`)
-        
+      
       var updatedPrice = data.price
       //splits data to separate it by the $
       var onePrice = updatedPrice.split('$')
@@ -54,8 +48,10 @@ module.exports = function(app) {
            
           //pushes price to database
           prices.push(parseFloat(finalPrice));
-        }
 
+          
+        }
+      
         
       }
       // function call
@@ -70,14 +66,16 @@ module.exports = function(app) {
       db.Search.create({search: req.body.search, price: avg}).then(function(result){
         res.json(result);
       });
+  
+
     })
        
   });
 
   // Delete an example by id
   app.delete("/api/searches/:id", function(req, res) {
-    db.Search.destroy({ where: { id: req.params.id } }).then(function(searchesdb) {
-      res.json(searchesdb);
+    db.Search.destroy({ where: { id: req.params.id } }).then(function(dbSearches) {
+      res.json(dbSearches);
     });
   });
 

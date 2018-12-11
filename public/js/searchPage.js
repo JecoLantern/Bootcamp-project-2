@@ -3,6 +3,8 @@ var searchItem = $("#searchItem");
 var $submitBtn = $("#submit");
 var $searchList = $("#search-list");
 
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveSearch: function(search) {
@@ -44,7 +46,7 @@ var refreshSearches = function() {
     };
     var $searches = data.map(function(search) {
       var $trtd = $(
-        "<tr class='animated flipInX delay-3s slower' data-id='" +
+        "<tr class='animated flipInX delay-1s fast' data-id='" +
           search.id +
           "'><td class='list-group-item'>" +
           search.search +
@@ -105,6 +107,12 @@ var handleDeleteBtnClick = function() {
     refreshSearches();
   });
 };
+
+
+
+
+
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
