@@ -4,5 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     price: DataTypes.DECIMAL(15, 2)
   });
 
-  return Search;
+  var PriceAndLink = sequelize.define("PriceAndLink", {
+    price: DataTypes.STRING,
+    link: DataTypes.STRING
+  });
+
+  return Search && PriceAndLink;
 };
