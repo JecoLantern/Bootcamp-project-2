@@ -9,10 +9,10 @@
       <div class="col s12 m12 l12 xl12">
         <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
         <h2 class="animated zoomIn slower question">What's My Worth?</h2>
-        <form name="buyorsellform" onsubmit="return validateForm()" class="animated fadeInUp slower" method="GET" action="/search">
+        <form name="buyorsellform" id="buyorsellform" onsubmit="return validateForm()" class="animated fadeInUp slower" method="GET" action="/search">
           <div class="row">
             <div class="input-field col s12 m12 l12 xl12">
-              <select name="buyorsell">
+              <select name="buyorsell" id="buyorsell">
                 <option value="" disabled selected>Please Choose your option</option>
                 <option value="1">I'm here to BUY</option>
                 <option value="2">I'm here to SELL</option>
