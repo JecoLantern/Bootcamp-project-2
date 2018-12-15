@@ -44,7 +44,7 @@ var refreshSearches = function() {
     };
     var $searches = data.map(function(search) {
       var $trtd = $(
-        "<tr class='animated flipInX delay-3s slower' data-id='" +
+        "<tr class='animated flipInX fast' data-id='" +
           search.id +
           "'><td class='list-group-item'>" +
           search.search +
