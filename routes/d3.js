@@ -2,8 +2,6 @@ var cors = require('cors'),
     express = require('express'),
     populationRouter = express.Router(),        
     mysql = require('mysql');
-    var searchterm = require('./module')
-    var terms = searchterm.terms;
 var connection = mysql.createConnection({
  connectionLimit : 1, //important 
 'host' : 'localhost',
@@ -19,7 +17,7 @@ var getPopulations = function(){
     
     populationRouter.route('/')    
     .get(function(req,res){
-        connection.query('SELECT * from searches where search =',terms,  function(err, rows, fields) {
+        connection.query('SELECT * from searches',  function(err, rows, fields) {
             if (err) {
                 console.error(err);
                 res.statusCode = 500;
