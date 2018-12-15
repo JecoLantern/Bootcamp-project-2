@@ -1,4 +1,4 @@
-* .list-group-item {
+/* .list-group-item {
   line-height: 2.5;
 } */
 
@@ -258,6 +258,5 @@ span.title{
   .dial:after{
     background-size: 470px;
   }
-
 
 }
