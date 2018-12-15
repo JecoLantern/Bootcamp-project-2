@@ -4,7 +4,7 @@
     <div align="center" id="transCircle">
       <div class="dial"></div>
     </div>
-  <div class="container">
+  <div class="container" id="formWrapper">
     <div class="row">
       <div class="col s12 m12 l12 xl12">
         <h1 class="animated fadeInDown slower greeting">{{msg}}</h1>
@@ -21,7 +21,7 @@
           </div>
           </div>
           <div class="row">
-            <div class="col offset-s5 offset-m5 offset-l5 offset-xl5">
+            <div class="col offset-s3 offset-m5 offset-l5 offset-xl5">
               <button id="submit" type="submit" value="Submit" class="waves-effect waves-light btn" href="/search">Submit!<i class="material-icons right">send</i></button>
             </div>
           </div>
@@ -31,64 +31,7 @@
       </div>
     </div>
   </div>
-  {{!-- <div class="container-fluid">
-    <div class="row" id="bottom">
-      <div class="col s10 offset-s1 m3 offset-m1 l3 offset-l1 xl3 offset-xl1 animated fadeInRightBig delay-3s">
-        <h4>About</h4>
-        <p align="justify">A full-stack web application that searches an item then populates for the cheapest price.</p>
-      </div>
-      <div class="col s10 offset-s1 m3 l3 xl3 animated fadeInRightBig delay-3s slow">
-        <h4>Technologies</h4>
-        <p align="justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolor sint culpa excepturi, nisi eum natus aliquam dolorem accusantium autem reiciendis esse quas labore quos, nobis odit delectus perspiciatis enim.</p>
-      </div>
-      <div class="col s10 offset-s1 m4 l4 xl3 animated fadeInRightBig delay-3s slower">
-        <h4>Developers</h4>
-          <div class="row">
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Daniel Grams</span>
-              <p align="center">
-                <a href="https://github.com/dgrams99">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/daniel-grams-8b7133172/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Troy Gordon</span>
-              <p align="center">
-                <a href="https://github.com/TroyAG">GitHub Repositories</a> | 
-                <a href="#">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Alfonso Miguel Bernardo</span>
-              <p align="center">
-                <a href="https://github.com/AMBernardo">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/alfonso-miguel-bernardo-75a678167/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-            <div class="card formatCard">
-            <div class="card-content contentsCard">
-              <span class="card-title grey-text text-darken-4">
-                <img src="img/github icon.png" width="20px" height="20px"> Jeric Ayonke</span>
-              <p align="center">
-                <a href="https://github.com/JecoLantern">GitHub Repositories</a> | 
-                <a href="https://www.linkedin.com/in/jeric-ayonke-93536443/">LinkedIn Profile</a>
-              </p>
-            </div>
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</div> --}}
+ 
 
 <div class="container-fluid">
   <div class="row">
@@ -107,7 +50,7 @@
         <div id="modal1" class="modal animated zoomIn">
             <div class="modal-content">
               <h4>App Information</h4>
-              <p>A full-stack web application that searches an item then populates for the cheapest price.</p>
+              <p>A full-stack web application that helps the user search for the product's average price and provides a price history graph of the item searched by the user.</p>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
@@ -117,7 +60,13 @@
           <div id="modal2" class="modal animated zoomIn">
             <div class="modal-content">
               <h4>Technologies Used</h4>
-              <p>A bunch of text hjagdfladbfljhgadbsghkfljkSBNDA dashbfsk</p>
+              <ul>
+                <li>- Materialize CSS</li>
+                <li>- MySQL</li>
+                <li>- Heroku</li>
+                <li>- D3</li>
+                <li>- Scrape-It</li>
+              </ul>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>

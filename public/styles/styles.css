@@ -148,24 +148,7 @@ opacity: .7;
 }
 } 
 
-@media only screen and (max-width: 600px) {
-  #circle {
-    left: 3rem;
-    height: 300px;
-    width: 300px;
-  }
 
-  #transCircle{
-    left: 3rem;
-    height: 300px;
-    width: 300px;
-  }
-
-  .dial:after{
-    background-size: 280px;
-  }
-
-}
 
 /* -----FABs and modals styling----- */
 div.fixed-action-btn{
@@ -236,5 +219,45 @@ span.title{
   color: black !important;
 }
 
+@media only screen and (max-width: 667px) {
+  #circle {
+    left: 3rem;
+    height: 300px;
+    width: 300px;
+  }
+
+  #transCircle{
+    left: 3rem;
+    height: 300px;
+    width: 300px;
+  }
+
+  .dial:after{
+    background-size: 280px;
+  }
+
+  #formWrapper{
+    margin-top: 5rem !important;
+  }
+
+}
+
+@media only screen and (max-width: 980px) and (min-width: 668px){
+  #circle {
+    left: 12rem;
+    height: 500px;
+    width: 500px;
+  }
+
+  #transCircle{
+    left: 12rem;
+    height: 500px;
+    width: 500px;
+  }
+
+  .dial:after{
+    background-size: 470px;
+  }
 
 
+}
