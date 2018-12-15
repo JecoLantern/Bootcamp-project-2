@@ -20,19 +20,29 @@ module.exports = function(app) {
  
       q = q.replace(" ", "+");
       
-     }
-    scrapeIt(`https://www.ebay.com/sch/i.html?_from=R40&_nkw=${q}&_sacat=0&_ipg=200`, {
-       price: "span.s-item__price",
-       url: {
-         selector: "a.s-item__link",
-         attr: "href"
+    }
 
-        }
+    //  console.log(q);
+    //scrape function
+    scrapeIt(`https://www.ebay.com/sch/i.html?_from=R40&_nkw=${q}&_sacat=0&_ipg=200`, {
+      price: "span.s-item__price",
+      link: {
+        listItem: "li.s-item",
+        data: {
+          price: "span.s-item__price",
+          url: {
+            selector: "a.s-item__link",
+            attr: "href"
+           }
+       }}
     }).then(({ data, response }) => {
-       var prices = [];
+      var prices = [];
+      var priceAndLink = [];
       console.log(`Status Code: ${response.statusCode}`)
-      console.log(data.url)
+      // console.log(data.link)
       var updatedPrice = data.price
+
+      var link = data.link;
       //splits data to separate it by the $
       var onePrice = updatedPrice.split('$')
         
@@ -52,10 +62,32 @@ module.exports = function(app) {
 
           //pushes price to database
           prices.push(parseFloat(finalPrice));
+        }
+      
+      });
+      //Sort Function
+      function compare(a,b) {
+        if (a < b)
+          return -1;
+        if (a > b)
+          return 1;
+        return 0;
+      }
+
+      function linkArray () {
+        for(var i = 1; i < link.length; i++) {
+          priceAndLink.push(link)
+        }
+      }
+      
+      // function call
+      priceChart()
+      linkArray();
+      console.log(priceAndLink.sort(compare))
 
           
-        }
-        
+        });
+       
       // Create Price
       let sum = prices.reduce((previous, current) => current += previous);
       console.log(sum)
@@ -67,9 +99,9 @@ module.exports = function(app) {
       });
       
 
-    })
+    
   
-  });
+ 
 
   // Delete an example by id
   app.delete("/api/searches/:id", function(req, res) {

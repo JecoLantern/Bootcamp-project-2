@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
       <div class="card">
-        <div class="card-content">
+        <div class="card-content" id="graph">
           <span class="card-title" align="center">More Information to Your Search</span>
           <p align="center">
             <strong>Search ID number </strong>: {{search.id}}</p>
@@ -10,8 +10,8 @@
           <p>
             <strong>Searching for </strong>: {{search.search}}</p>
           <p>
-            <strong>Price </strong>: {{search.price}}</p><br><br>
-          
+            <strong>Price </strong>: <span id="docPrice">$ {{search.price}}</span></p><br><br>
+          <div id="graphChart"></div>
         </div>
         
         <div class="card-action">
@@ -23,44 +23,93 @@
   </div>
  
 </div>
- <canvas id="myChart" width="400" height="400"></canvas>
-<script src="path/to/chartjs/dist/Chart.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
+  $(document).ready(function(){ 
+    function formatMoney(n, c, d, t) {
+      var c = isNaN(c = Math.abs(c)) ? 2 : c,
+      d = d == undefined ? "." : d,
+      t = t == undefined ? "," : t,
+      s = n < 0 ? "-" : "",
+      i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+      j = (j = i.length) > 3 ? j % 3 : 0;
+
+      return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    };
+
+    document.getElementById("docPrice").innerText = "$ " + formatMoney({{search.price}});
+  });
+
+var url = 'http://localhost:5000/price'
+d3.json(url, function(error, data) {
+  console.log(data)
+  });
+
+
+  // Set the dimensions of the canvas  graph
+var margin = {top: 30, right: 20, bottom: 30, left: 60},
+    width = 600 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
+
+// Parse the date / time
+var parseDate = d3.time.format("%d-%b-%y").parse;
+
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.createdAt); })
+    .y(function(d) { return y(d.price); });
+    
+// Adds the svg canvas
+var svg = d3.select("#graphChart")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data\
+var url = 'http://localhost:5000/price'
+d3.json(url, function(error, data) {
+   data.forEach(function(d) {
+        d.createdAt = parseDate(d.createdAt );
+        d.price = +d.price;
+  });
+
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.createdAt; }));
+    y.domain([0, d3.max(data, function(d) { return d.price; })]);
+
+    // Add the valueline path.
+    svg.append("path")
+        .attr("class", "line")
+        .attr("d", valueline(data));
+
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
 });
+
+
 </script>

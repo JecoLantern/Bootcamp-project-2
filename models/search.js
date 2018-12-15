@@ -3,8 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     search: DataTypes.STRING,
     price: DataTypes.DECIMAL(15, 2)
   });
-  // var price = sequelize.define("Price", {
-  //   price: DataTypes.DECIMAL(15,4)
-  // }); return price
-  return Search;
+
+  var PriceAndLink = sequelize.define("PriceAndLink", {
+    price: DataTypes.STRING,
+    link: DataTypes.STRING
+  });
+
+  return Search && PriceAndLink;
 };
